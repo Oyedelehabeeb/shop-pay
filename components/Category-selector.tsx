@@ -71,6 +71,27 @@ export function CategorySelectorComponent({
           />
           <CommandList></CommandList>
           <CommandEmpty>No categories found.</CommandEmpty>
+          <CommandGroup>
+            {categories.map((category) => (
+              <CommandItem
+                key={category._id}
+                value={category.title}
+                onSelect={() => {
+                  setValue(value === category._id ? "" : category._id);
+                  router.push(`/categories/${category?.slug?.current}`);
+                  setOpen(false);
+                }}
+              >
+                {category.title}
+                <Check
+                  className={cn(
+                    "ml-auto h-4 w-4",
+                    value === category._id ? "opacity-100" : "opacity-0"
+                  )}
+                />
+              </CommandItem>
+            ))}
+          </CommandGroup>
         </Command>
       </PopoverContent>
     </Popover>
