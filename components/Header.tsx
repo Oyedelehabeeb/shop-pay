@@ -56,7 +56,7 @@ function Header() {
             <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
               {itemCount}
             </span>
-            <span> My Basket</span>
+            <span> My Cart</span>
           </Link>
 
           {/* User area */}
