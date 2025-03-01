@@ -60,7 +60,7 @@ const useCartStore = create<CartState>()(
 
       getTotalPrice: () =>
         get().items.reduce(
-          (acc, item) => acc + item.product?.price * item.quantity,
+          (acc, item) => acc + item.product.price! * item.quantity,
           0
         ),
 
