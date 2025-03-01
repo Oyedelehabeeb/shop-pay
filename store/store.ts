@@ -71,7 +71,7 @@ const useCartStore = create<CartState>()(
 
       getGroupedItems: () => get().items,
     }),
-    { name: "cartStore" } // <--- Missing comma was added here
+    { name: "cartStore" }
   )
 );
 
