@@ -1,4 +1,5 @@
 import { imageUrl } from "@/lib/imageUrl";
+import { formatPrice } from "@/lib/utils";
 import { Product } from "@/sanity.types";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,7 +42,7 @@ export default function ProductThumb({ product }: { product: Product }) {
             .join(" ") || "No description available"}
         </p>
         <p className="mt-2 text-lg font-bold text-gray-900">
-          ${product.price?.toFixed(2)}
+          {formatPrice(product.price!)}
         </p>
       </div>
     </Link>

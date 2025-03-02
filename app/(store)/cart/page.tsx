@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { imageUrl } from "./../../../lib/imageUrl";
 import Loader from "@/components/Loader";
+import { formatPrice } from "@/lib/utils";
 
 export default function CartPage() {
   const groupedItems = useCartStore((state) => state.getGroupedItems());
@@ -34,6 +35,8 @@ export default function CartPage() {
       </div>
     );
   }
+
+  function handleCheckout() {}
 
   return (
     <div className="conrtainer mx-auto p-4 max-w-6xl">
@@ -67,8 +70,8 @@ export default function CartPage() {
                     {item.product.name}
                   </h2>
                   <p className="text-sm sm:text-base">
-                    Price: $
-                    {((item.product.price ?? 0) * item.quantity).toFixed(2)}
+                    Price:{" "}
+                    {formatPrice((item.product.price ?? 0) * item.quantity)}
                   </p>
                 </div>
               </div>
@@ -90,7 +93,9 @@ export default function CartPage() {
             </p>
             <p className="flex justify-between text-2xl font-bold border-t pt-2">
               <span>Total:</span>
-              <span>${useCartStore.getState().getTotalPrice().toFixed(2)}</span>
+              <span>
+                {formatPrice(useCartStore.getState().getTotalPrice())}
+              </span>
             </p>
           </div>
 

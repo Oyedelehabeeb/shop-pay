@@ -1,5 +1,6 @@
 import AddToCartButton from "@/components/AddToCartButton";
 import { imageUrl } from "@/lib/imageUrl";
+import { formatPrice } from "@/lib/utils";
 import { getProductBySlug } from "@/sanity/lib/products/getProductBySlug";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
@@ -45,7 +46,7 @@ export default async function ProductPage({
           <div>
             <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
             <div className="text-3xl font-semibold mb-4">
-              ${product.price?.toFixed(2)}
+              {formatPrice(product.price!)}
             </div>
             <div className="prose max-w-none mb-6">
               {Array.isArray(product.description) && (
