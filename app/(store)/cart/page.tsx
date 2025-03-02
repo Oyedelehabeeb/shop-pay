@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { imageUrl } from "./../../../lib/imageUrl";
 import Loader from "@/components/Loader";
 import { formatPrice } from "@/lib/utils";
+import { Metadata, createCheckoutSession } from "@/action/checkoutSession";
 
 export default function CartPage() {
   const groupedItems = useCartStore((state) => state.getGroupedItems());
@@ -36,7 +37,28 @@ export default function CartPage() {
     );
   }
 
-  function handleCheckout() {}
+  async function handleCheckout() {
+    if (!isSignedIn) return;
+    setIsLoading(true);
+
+    try {
+      const metadata: Metadata = {
+        orderNumber: crypto.randomUUID(),
+        customerName: user?.fullName ?? "unknown",
+        customerEmail: user?.emailAddresses[0].emailAddress ?? "unknown",
+        clerkUserId: user!.id,
+      };
+      const checkoutUrl = await createCheckoutSession(groupedItems, metadata);
+
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      }
+    } catch (error) {
+      console.error("Error checking out: ", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     <div className="conrtainer mx-auto p-4 max-w-6xl">
