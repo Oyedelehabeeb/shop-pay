@@ -127,7 +127,7 @@ export default function CartPage() {
               disabled={isLoading}
               className="mt-4 w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
             >
-              {isLoading ? "Loading..." : "Checkout"}
+              {isLoading ? "Processing..." : "Checkout"}
             </button>
           ) : (
             <SignInButton mode="modal">
