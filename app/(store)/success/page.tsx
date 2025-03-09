@@ -1,6 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import useCartStore from "@/store/store";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
@@ -60,6 +62,22 @@ export default function SuccessPage() {
                 <span className="font-mono text-sm">{sessionId}</span>
               </p>
             )}
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <p className="text-gray-600">
+            A confirmation email has been sent to your registered email address.
+            If you have any questions or concerns, please don't hesitate to
+            reach out.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild className="bg-green-600 hover:bg-green-700">
+              <Link href="/orders">View Order Details</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/">Continue Shipping</Link>
+            </Button>
           </div>
         </div>
       </div>
