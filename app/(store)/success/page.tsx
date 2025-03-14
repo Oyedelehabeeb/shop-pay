@@ -68,7 +68,7 @@ export default function SuccessPage() {
         <div className="space-y-4">
           <p className="text-gray-600">
             A confirmation email has been sent to your registered email address.
-            If you have any questions or concerns, please don't hesitate to
+            If you have any questions or concerns, please don&apos;t hesitate to
             reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

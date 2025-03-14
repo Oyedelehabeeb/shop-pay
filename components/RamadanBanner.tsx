@@ -1,5 +1,6 @@
 // import { COUPON_CODES } from "@/sanity/lib/sale/couponCode";
 import { getActiveSaleByCouponCode } from "@/sanity/lib/sale/getActiveSaleByCouponCode";
+import Image from "next/image";
 
 export default async function RamadanBanner() {
   const sale = await getActiveSaleByCouponCode("RAMADAN");
@@ -7,7 +8,7 @@ export default async function RamadanBanner() {
   if (!sale?.isActive) return null;
 
   return (
-    <div className="bg-gradient-to-r from-red-600 to-black text-white px-6 py-10 mx-4 mt-2 rounded-lg shadow-lg">
+    <div className=" flex bg-gradient-to-r from-yellow-700 to-black text-white px-6 py-10 mx-4 mt-2 rounded-lg shadow-lg">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex-1">
           <h2 className="text-3xl sm:text-5xl font-extrabold text-left mb-4">
@@ -29,6 +30,14 @@ export default async function RamadanBanner() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Image
+          src="/ramadan-balloon.png"
+          alt="Ramadan Balloon"
+          width={200}
+          height={200}
+        />
       </div>
     </div>
   );
