@@ -102,6 +102,11 @@ export default function CartPage() {
               </div>
             </div>
           ))}
+          <div className="animate-pulse text-stone-400 mt-3">
+            <p className="">Test Card for Checkout: 5555 5555 5555 4444</p>
+            Year: 02/28
+            <p>CVV: 123</p>
+          </div>
         </div>
 
         <div className="w-full lg:w-80 lg:sticky lg:top-4 h-fit bg-white p-6 border rounded order-first lg:order-last fixed bottom-0 left-0 lg:left-auto">
