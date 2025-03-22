@@ -5,12 +5,12 @@ import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
 import { getAllProducts } from "@/sanity/lib/products/getAllProducts";
 
 export const dynamic = "force-static";
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export const metadata = {
   title: "shopNpay | Welcome",
   description:
-    "shopNpay is an e-commerce platform for buying and selling products.",
+    "shopNpay is an e-commerce platform for buying various products.",
 };
 
 export default async function Home() {
